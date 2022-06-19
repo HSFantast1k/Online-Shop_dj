@@ -31,10 +31,10 @@ class OrderItem(models.Model):
                                 related_name='order_otems',
                                 on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    quantify = models.PositiveIntegerField(default=1)
+    quantity = models.PositiveIntegerField(default=1)
 
     def __str__(self):
         return '{}'.format(self.id)
 
     def get_cost(self):
-        return self.price * self.quantify
+        return self.price * self.quantity
